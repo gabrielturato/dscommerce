@@ -1,14 +1,13 @@
 package com.gturato.dscommerce.entities;
 
 import jakarta.persistence.*;
-import org.springframework.security.core.userdetails.UserDetails;
 
 import java.time.LocalDate;
 import java.util.*;
 
 @Entity
 @Table(name = "tb_user")
-public class User implements UserDetails {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -81,7 +80,6 @@ public class User implements UserDetails {
         this.birthDate = birthDate;
     }
 
-    @Override
     public Set<Role> getAuthorities() {
         return roles;
     }
@@ -99,15 +97,10 @@ public class User implements UserDetails {
         roles.add(role);
     }
 
-    @Override
     public String getPassword() {
         return password;
     }
 
-    @Override
-    public String getUsername() {
-        return email;
-    }
 
     public void setPassword(String password) {
         this.password = password;
@@ -130,25 +123,5 @@ public class User implements UserDetails {
     @Override
     public int hashCode() {
         return id != null ? id.hashCode() : 0;
-    }
-
-    @Override
-    public boolean isAccountNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isAccountNonLocked() {
-        return true;
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return true;
     }
 }
