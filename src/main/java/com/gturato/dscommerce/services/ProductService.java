@@ -1,6 +1,9 @@
 package com.gturato.dscommerce.services;
 
+import com.gturato.dscommerce.dto.CategoryDTO;
 import com.gturato.dscommerce.dto.ProductDTO;
+import com.gturato.dscommerce.dto.ProductMinDTO;
+import com.gturato.dscommerce.entities.Category;
 import com.gturato.dscommerce.entities.Product;
 import com.gturato.dscommerce.repositories.ProductRepository;
 import com.gturato.dscommerce.services.exceptions.DatabaseException;
@@ -28,9 +31,9 @@ public class ProductService {
     }
 
     @Transactional(readOnly = true)
-    public Page<ProductDTO> findAll(String name, Pageable pageable) {
+    public Page<ProductMinDTO> findAll(String name, Pageable pageable) {
         Page<Product> result = repository.searchByName(name, pageable);
-        return result.map(x -> new ProductDTO(x));
+        return result.map(x -> new ProductMinDTO(x));
     }
 
     @Transactional
@@ -72,5 +75,12 @@ public class ProductService {
         entity.setDescription(dto.getDescription());
         entity.setPrice(dto.getPrice());
         entity.setImgUrl(dto.getImgUrl());
+
+        entity.getCategories().clear();
+        for (CategoryDTO catDto : dto.getCategories()) {
+            Category cat = new Category();
+            cat.setId(catDto.getId());
+            entity.getCategories().add(cat);
+        }
     }
 }
