@@ -10,4 +10,8 @@ public enum PaymentMethod {
     PaymentMethod(String code) {
         this.code = code;
     }
+
+    public String getCode() {
+        return code;
+    }
 }
