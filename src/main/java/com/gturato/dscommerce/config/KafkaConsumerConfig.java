@@ -1,6 +1,6 @@
 package com.gturato.dscommerce.config;
 
-import com.gturato.dscommerce.dto.PaymentConsumerDTO;
+import com.gturato.dscommerce.dto.PaymentListenerDTO;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.springframework.beans.factory.annotation.Value;
@@ -24,8 +24,8 @@ public class KafkaConsumerConfig {
     private String kafkaGroup;
 
     @Bean
-    public ConsumerFactory<String, PaymentConsumerDTO> consumerFactory() {
-        JsonDeserializer<PaymentConsumerDTO> deserializer = new JsonDeserializer<>(PaymentConsumerDTO.class);
+    public ConsumerFactory<String, PaymentListenerDTO> consumerFactory() {
+        JsonDeserializer<PaymentListenerDTO> deserializer = new JsonDeserializer<>(PaymentListenerDTO.class);
         deserializer.setRemoveTypeHeaders(false);
         deserializer.addTrustedPackages("*");
         deserializer.setUseTypeMapperForKey(true);
@@ -40,8 +40,8 @@ public class KafkaConsumerConfig {
     }
 
     @Bean
-    public ConcurrentKafkaListenerContainerFactory<String, PaymentConsumerDTO> kafkaListenerContainerFactory() {
-        ConcurrentKafkaListenerContainerFactory<String, PaymentConsumerDTO> factory =
+    public ConcurrentKafkaListenerContainerFactory<String, PaymentListenerDTO> kafkaListenerContainerFactory() {
+        ConcurrentKafkaListenerContainerFactory<String, PaymentListenerDTO> factory =
                 new ConcurrentKafkaListenerContainerFactory<>();
         factory.setConsumerFactory(consumerFactory());
         return factory;

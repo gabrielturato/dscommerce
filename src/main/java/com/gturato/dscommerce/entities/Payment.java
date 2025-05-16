@@ -56,6 +56,14 @@ public class Payment {
         this.order = order;
     }
 
+    public PaymentMethod getMethod() {
+        return method;
+    }
+
+    public void setMethod(PaymentMethod method) {
+        this.method = method;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

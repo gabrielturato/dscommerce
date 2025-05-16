@@ -7,18 +7,18 @@ import java.time.Instant;
 
 
 @JsonDeserialize
-public class PaymentConsumerDTO {
+public class PaymentListenerDTO {
     private Instant moment;
     private PaymentMethod method;
     private Long orderId;
 
-    public PaymentConsumerDTO(Instant moment, PaymentMethod method, Long orderId) {
+    public PaymentListenerDTO(Instant moment, PaymentMethod method, Long orderId) {
         this.moment = moment;
         this.method = method;
         this.orderId = orderId;
     }
 
-    public PaymentConsumerDTO() {
+    public PaymentListenerDTO() {
     }
 
     public Instant getMoment() {
