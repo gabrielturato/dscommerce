@@ -1,5 +1,6 @@
 package com.gturato.dscommerce.entities;
 
+import com.gturato.dscommerce.enums.PaymentMethod;
 import jakarta.persistence.*;
 
 import java.time.Instant;
@@ -15,6 +16,8 @@ public class Payment {
 
     @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
     private Instant moment;
+
+    private PaymentMethod method;
 
     @OneToOne
     @MapsId
@@ -51,6 +54,14 @@ public class Payment {
 
     public void setOrder(Order order) {
         this.order = order;
+    }
+
+    public PaymentMethod getMethod() {
+        return method;
+    }
+
+    public void setMethod(PaymentMethod method) {
+        this.method = method;
     }
 
     @Override
