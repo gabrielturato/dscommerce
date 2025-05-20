@@ -62,7 +62,7 @@ public class AuthorizationServerConfig {
 	private UserDetailsService userDetailsService;
 
 	@Bean
-	@Order(2)
+	@Order(3)
 	SecurityFilterChain asSecurityFilterChain(HttpSecurity http) throws Exception {
 
 		http.securityMatcher("/**").with(OAuth2AuthorizationServerConfigurer.authorizationServer(), Customizer.withDefaults());
