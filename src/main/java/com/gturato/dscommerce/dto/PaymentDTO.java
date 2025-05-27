@@ -1,9 +1,11 @@
 package com.gturato.dscommerce.dto;
 
 import com.gturato.dscommerce.entities.Payment;
+import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.time.Instant;
 
+@Schema(description = "Payment of a order")
 public class PaymentDTO {
 
     private Long id;

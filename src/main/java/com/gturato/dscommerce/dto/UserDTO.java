@@ -1,12 +1,14 @@
 package com.gturato.dscommerce.dto;
 
 import com.gturato.dscommerce.entities.User;
+import io.swagger.v3.oas.annotations.media.Schema;
 import org.springframework.security.core.GrantedAuthority;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+@Schema(description = "User of dscommerce")
 public class UserDTO {
 
     private Long id;

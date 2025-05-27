@@ -2,6 +2,7 @@ package com.gturato.dscommerce.dto;
 
 import com.gturato.dscommerce.entities.Category;
 import com.gturato.dscommerce.entities.Product;
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Positive;
@@ -10,6 +11,7 @@ import jakarta.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
 
+@Schema(description = "Product")
 public class ProductDTO {
 
     private Long id;

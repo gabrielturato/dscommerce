@@ -3,6 +3,7 @@ package com.gturato.dscommerce.controllers;
 import com.gturato.dscommerce.dto.ProductDTO;
 import com.gturato.dscommerce.dto.ProductMinDTO;
 import com.gturato.dscommerce.services.ProductService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -14,6 +15,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
 
+@SecurityRequirement(name = "BearerAuth")
 @RestController
 @RequestMapping(value = "/products")
 public class ProductController {

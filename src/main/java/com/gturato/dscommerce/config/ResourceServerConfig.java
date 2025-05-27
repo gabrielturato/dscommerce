@@ -40,15 +40,23 @@ public class ResourceServerConfig {
 	}
 
 	@Bean
-	@Profile("test")
 	@Order(2)
 	SecurityFilterChain swaggerSecurityFilterChain(HttpSecurity http) throws Exception {
 		http
-				.securityMatcher("/v3/api-docs/**", "/swagger-ui.html", "/swagger-ui/**")
+				.securityMatcher(
+						"/v3/api-docs/**",
+						"/swagger-ui/**",
+						"/swagger-ui/index.html",
+						"/swagger-resources/**",
+						"/webjars/**",
+						"/configuration/**"
+				)
 				.authorizeHttpRequests(auth -> auth.anyRequest().permitAll())
 				.csrf(csrf -> csrf.disable());
 		return http.build();
 	}
+
+
 
 	@Bean
 	@Order(4)

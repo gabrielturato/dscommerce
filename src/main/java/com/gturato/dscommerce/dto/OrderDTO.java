@@ -3,12 +3,14 @@ package com.gturato.dscommerce.dto;
 import com.gturato.dscommerce.entities.Order;
 import com.gturato.dscommerce.entities.OrderItem;
 import com.gturato.dscommerce.entities.OrderStatus;
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotEmpty;
 
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 
+@Schema(description = "Order")
 public class OrderDTO {
 
     private Long id;

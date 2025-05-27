@@ -1,7 +1,9 @@
 package com.gturato.dscommerce.dto;
 
 import com.gturato.dscommerce.entities.OrderItem;
+import io.swagger.v3.oas.annotations.media.Schema;
 
+@Schema(description = "Item of the order")
 public class OrderItemDTO {
 
     private Long productId;

@@ -2,6 +2,7 @@ package com.gturato.dscommerce.controllers;
 
 import com.gturato.dscommerce.dto.OrderDTO;
 import com.gturato.dscommerce.services.OrderService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -11,6 +12,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
 
+@SecurityRequirement(name = "BearerAuth")
 @RestController
 @RequestMapping(value = "/orders")
 public class OrderController {

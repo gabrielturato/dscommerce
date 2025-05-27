@@ -1,7 +1,9 @@
 package com.gturato.dscommerce.dto;
 
 import com.gturato.dscommerce.entities.Category;
+import io.swagger.v3.oas.annotations.media.Schema;
 
+@Schema(description = "Categories of products")
 public class CategoryDTO {
 
     Long id;

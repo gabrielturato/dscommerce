@@ -1,7 +1,9 @@
 package com.gturato.dscommerce.dto;
 
 import com.gturato.dscommerce.entities.Product;
+import io.swagger.v3.oas.annotations.media.Schema;
 
+@Schema(description = "Minimal informations of product")
 public class ProductMinDTO {
 
     private Long id;

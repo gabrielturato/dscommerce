@@ -1,7 +1,9 @@
 package com.gturato.dscommerce.dto;
 
 import com.gturato.dscommerce.entities.User;
+import io.swagger.v3.oas.annotations.media.Schema;
 
+@Schema(description = "Client of dscommerce")
 public class ClientDTO {
 
     private Long id;
